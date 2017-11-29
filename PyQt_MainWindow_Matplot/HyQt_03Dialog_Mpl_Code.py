@@ -29,9 +29,7 @@ class MyWindows(QtWidgets.QMainWindow,Ui_MainWindow):
                                                           "./",
                                                           "Csv Files (*.csv);;Text Files (*.txt)")  # 设置文件扩展名过滤,注意用双分号间隔
 
-
         P3Para.CalParaOfSeries(InputfileName)
-
         '''
         ------------------------------------------
         数据读取和系列统计值计算  测试语句
@@ -44,7 +42,7 @@ class MyWindows(QtWidgets.QMainWindow,Ui_MainWindow):
         '''
 
     def DrawPlot(self):
-        ''' pause plot '''
+        print("Start Drawing")
         self.mplCanvas.Plot()
         pass
 
