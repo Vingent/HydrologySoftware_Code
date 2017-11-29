@@ -1,0 +1,3 @@
+# 此为注释 – 将被 Git 忽略
+build/    # 忽略 build/ 目录下的所有文件
+dist/
