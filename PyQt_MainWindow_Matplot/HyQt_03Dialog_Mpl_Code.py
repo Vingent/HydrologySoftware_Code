@@ -22,7 +22,7 @@ class MyWindows(QtWidgets.QMainWindow,Ui_MainWindow):
         super(MyWindows,self).__init__()
         self.setupUi(self)
         self.actionDataInput.triggered.connect(self.DataInput)
-
+        self.DrawButton.clicked.connect(self.DrawPlot)
     def DataInput(self):
         InputfileName, Inputfiletype = QFileDialog.getOpenFileName(self,
                                                           "选取数据文件",
@@ -43,7 +43,10 @@ class MyWindows(QtWidgets.QMainWindow,Ui_MainWindow):
         ------------------------------------------
         '''
 
-
+    def DrawPlot(self):
+        ''' pause plot '''
+        self.mplCanvas.Plot()
+        pass
 
 
 if __name__ == "__main__":

@@ -20,7 +20,7 @@ from matplotlib.dates import date2num, MinuteLocator, SecondLocator, DateFormatt
 X_MINUTES = 1
 Y_MAX = 1000
 Y_MIN = 1
-0000000000000.00.INTERVAL = 1
+INTERVAL = 1
 MAXCOUNTER = int(X_MINUTES * 60/ INTERVAL)
 class MplCanvas(FigureCanvas):
 	def __init__(self):

@@ -7,44 +7,23 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-#from mplcanvaswrapper import MplCanvasWrapper
-
-from mplcanvaswrapper import PlotCanvas
+from mplCanvasWrapper import MplCanvasWrapper
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1444, 859)
+        MainWindow.resize(1037, 800)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        #self.widget = QtWidgets.MplCanvasWrapper(self.centralwidget)
-
-        self.widget = PlotCanvas(self.centralwidget)
-        #self.mplCanvas = PlotCanvas(self.centralWidget)
-        '''
-        self.gridLayout.addLayout(self.horizontalLayout, 0, 0, 1, 1)
-        self.mplCanvas = PlotCanvas(self.centralWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.mplCanvas.sizePolicy().hasHeightForWidth())
-        self.mplCanvas.setSizePolicy(sizePolicy)
-        self.mplCanvas.setObjectName(_fromUtf8("mplCanvas"))
-        self.gridLayout.addWidget(self.mplCanvas, 1, 0, 1, 1)
-        MainWindow.setCentralWidget(self.centralWidget)        
-        
-        '''
-
-
-
-        self.widget.setGeometry(QtCore.QRect(10, 110, 931, 641))
+        self.widget = MplCanvasWrapper(self.centralwidget)
+        self.widget.setGeometry(QtCore.QRect(10, 10, 811, 741))
         self.widget.setObjectName("widget")
         self.DrawButton = QtWidgets.QPushButton(self.centralwidget)
-        self.DrawButton.setGeometry(QtCore.QRect(1220, 720, 150, 46))
+        self.DrawButton.setGeometry(QtCore.QRect(860, 680, 150, 46))
         self.DrawButton.setObjectName("DrawButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1444, 37))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 841, 26))
         self.menubar.setObjectName("menubar")
         self.menu = QtWidgets.QMenu(self.menubar)
         self.menu.setObjectName("menu")
@@ -63,7 +42,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.actionExit.triggered.connect(MainWindow.close)
-        self.DrawButton.clicked.connect(PlotCanvas.plot)
+        #self.DrawButton.clicked.connect(self.widget.update)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
