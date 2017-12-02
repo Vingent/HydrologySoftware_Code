@@ -17,8 +17,15 @@ from PyQt5.QtGui import QIcon
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
-import matplotlib.pyplot as plt
 
+import matplotlib.pyplot as plt
+import csv
+import math
+import numpy as np
+import matplotlib
+import scipy.stats as scst
+from scipy.special import gamma
+from sympy import integrate
 import random
 
 
@@ -37,8 +44,7 @@ class PlotCanvas(FigureCanvas):
         self.ax.legend()
         self.ax.set_ylim(Y_MIN, Y_MAX)
         self.ax.xaxis.set_major_locator(MinuteLocator())  # every minute is a major locator
-        self.ax.xaxis.set_minor_locator(
-            SecondLocator([10, 20, 30, 40, 50]))  # every 10 second is a minor locator
+        self.ax.xaxis.set_minor_locator(SecondLocator([10, 20, 30, 40, 50]))  # every 10 second is a minor locator
         self.ax.xaxis.set_major_formatter(DateFormatter('%H:%M:%S'))  # tick label formatter
         self.curveObj = None  # draw object
 

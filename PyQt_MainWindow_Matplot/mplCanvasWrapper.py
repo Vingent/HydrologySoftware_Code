@@ -11,6 +11,16 @@ from matplotlib.backends.backend_qt5 import NavigationToolbar2QT as NavigationTo
 from matplotlib.figure import Figure
 import numpy as np
 from array import array
+
+import matplotlib.pyplot as plt
+import csv
+import math
+import numpy as np
+import matplotlib
+import scipy.stats as scst
+from scipy.special import gamma
+from sympy import integrate
+
 import time
 import random
 import threading
@@ -38,8 +48,10 @@ class MplCanvas(FigureCanvas):
 		self.ax.xaxis.set_major_formatter( DateFormatter('%H:%M:%S') ) #tick label formatter
 		self.curveObj = None # draw object
 
+		print("init MplCanvas")
 
 	def plot(self, datax, datay):
+		print("Start Plot()")
 		self.ax.set_xlabel("time of data generator")
 		self.ax.set_ylabel('random data value')
 		self.ax.legend()
@@ -111,15 +123,34 @@ class MplCanvasWrapper(QtWidgets.QWidget):
 
 	def __init__(self , parent =None):
 		QtWidgets.QWidget.__init__(self, parent)
+
+		#=======================================
+		#Matplotlib图形主体
+		#继承FigureCanvas类，
+		#该类既是一个PyQt5的Qwidget，又是一个matplotlib的FigureCanvas，
+		#这是连接pyqt5与matplotlib的关键
 		self.canvas = MplCanvas()
-		self.vbl = QtWidgets.QVBoxLayout()
+		#=======================================
+		#Matplotlib工具条
 		self.ntb = NavigationToolbar(self.canvas, parent)
+		#=======================================
+		#PyQt框架部件
+		self.vbl = QtWidgets.QVBoxLayout()
 		self.vbl.addWidget(self.ntb)
 		self.vbl.addWidget(self.canvas)
 		self.setLayout(self.vbl)
+		#=======================================
 		self.dataX= []
 		self.dataY= []
-		self.initDataGenerator()
+
+		print("init MplCanvasWrapper")
+
+#		self.initDataGenerator()
+
+
+	'''
+	
+	
 	def startPlot(self):
 		self.__generating = True
 	
@@ -156,3 +187,4 @@ class MplCanvasWrapper(QtWidgets.QWidget):
 				else:
 					counter+=1
 			time.sleep(INTERVAL)
+	'''

@@ -7,7 +7,8 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from mplCanvasWrapper import MplCanvasWrapper
+#from mplCanvasWrapper import MplCanvasWrapper
+from PyQt_MainWindow_Matplot.mplCanvasWrapper import MplCanvasWrapper
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -44,6 +45,11 @@ class Ui_MainWindow(object):
         self.actionExit.triggered.connect(MainWindow.close)
         #self.DrawButton.clicked.connect(self.widget.update)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        self.MplCanvas=MplCanvasWrapper(self.centralWidget)
+
+
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

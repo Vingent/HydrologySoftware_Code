@@ -43,7 +43,7 @@ class MyWindows(QtWidgets.QMainWindow,Ui_MainWindow):
 
     def DrawPlot(self):
         print("Start Drawing")
-        self.mplCanvas.Plot()
+        self.MplCanvas.Plot()
         pass
 
 
